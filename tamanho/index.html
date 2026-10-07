@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qual é o meu tamanho? · GAN TEAM</title>
+<meta name="description" content="Calculadora de tamanho e tabela de medidas GAN TEAM: oversized e cropped.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b0b0c;color:#E6DED3;font-family:Poppins,system-ui,sans-serif;padding:32px 16px 48px}
+.top{text-align:center;margin-bottom:24px}
+.top img{width:90px;height:auto}
+.top a{color:inherit;text-decoration:none}
+.top div{letter-spacing:.3em;font-size:13px;margin-top:8px}
+.gt-size{border:1px solid #2C2D31}
+.tabelas{max-width:460px;margin:28px auto 0}
+.tabelas h4{margin:22px 0 8px;font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;font-size:14px;text-align:center}
+th{font-weight:600;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#9B958C;padding:8px 4px;border-bottom:1px solid #2C2D31}
+td{padding:8px 4px;border-bottom:1px solid #1c1d20}
+td:first-child{font-weight:600}
+.obs{font-size:12px;color:#9B958C;margin-top:10px;line-height:1.5}
+.rod{text-align:center;margin-top:36px;font-size:13px}
+.rod a{color:#E6DED3}
+</style>
+</head>
+<body>
+<header class="top"><a href="/"><img src="data:image/png;base64,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" alt="GAN TEAM"><div>GAN TEAM</div></a></header>
+<!-- ===================== INÍCIO ===================== -->
+<div class="gt-size" id="gt-size">
+  <style>
+    .gt-size{--ink:#E6DED3;--bg:#111214;--muted:#9B958C;--line:#2C2D31;--accent:#E8414B;
+      font-family:Poppins,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);
+      max-width:460px;margin:0 auto;border-radius:10px;padding:28px 24px;box-sizing:border-box}
+    .gt-size *{box-sizing:border-box}
+    .gt-size h3{margin:0 0 4px;font-size:22px;letter-spacing:.02em;text-transform:uppercase}
+    .gt-size p.gt-sub{margin:0 0 16px;color:var(--muted);font-size:14px}
+    .gt-size .gt-tabs{display:flex;border:1px solid var(--line);border-radius:6px;padding:3px;margin-bottom:16px}
+    .gt-size .gt-tabs button{margin:0;flex:1;background:transparent;color:var(--muted);padding:9px;font-size:13px}
+    .gt-size .gt-tabs button.on{background:var(--ink);color:var(--bg)}
+    .gt-size .gt-row{display:flex;gap:12px}
+    .gt-size label{flex:1;display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--muted)}
+    .gt-size input{width:100%;background:transparent;border:1px solid var(--line);color:var(--ink);
+      border-radius:6px;padding:12px;font-size:16px;font-family:inherit}
+    .gt-size input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+    .gt-size button{margin-top:16px;width:100%;background:var(--ink);color:var(--bg);border:0;border-radius:6px;
+      padding:13px;font-size:15px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;font-family:inherit}
+    .gt-size .gt-err{color:var(--accent);font-size:13px;margin-top:10px;min-height:1em}
+    .gt-size .gt-res{margin-top:18px;display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:8px;align-items:stretch}
+    .gt-size .gt-card{border:1px solid var(--line);border-radius:8px;padding:12px 10px;text-align:center;opacity:.8;display:flex;flex-direction:column;justify-content:flex-end}
+    .gt-size .gt-card.main{border-color:var(--ink);opacity:1;padding-top:10px}
+    .gt-size .gt-tag{display:inline-block;background:var(--ink);color:var(--bg);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;padding:2px 6px;margin-bottom:4px}
+    .gt-size .gt-card b{display:block;font-size:30px;line-height:1;margin:4px 0 6px}
+    .gt-size .gt-card span{display:flex;align-items:center;justify-content:center;min-height:2.6em;line-height:1.3;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+    .gt-size .gt-card small{display:block;font-size:12px;color:var(--ink);opacity:.85}
+    .gt-size .gt-note{grid-column:1/-1;font-size:12px;color:var(--muted);line-height:1.5}
+    .gt-size .gt-none{grid-column:1/-1;border:1px solid var(--line);border-radius:8px;padding:16px;font-size:14px;line-height:1.5}
+    .gt-size .gt-none b{display:block;font-size:16px;margin-bottom:6px}
+  </style>
+
+  <h3>Qual é o meu tamanho?</h3>
+  <p class="gt-sub" id="gt-sub">Camiseta oversized · informe sua altura e seu peso</p>
+
+  <div class="gt-tabs" role="tablist">
+    <button type="button" class="on" data-m="over" role="tab" aria-selected="true">Oversized</button>
+    <button type="button" data-m="crop" role="tab" aria-selected="false">Cropped</button>
+  </div>
+
+  <form id="gt-form" novalidate>
+    <div class="gt-row">
+      <label for="gt-altura">Altura (cm)
+        <input id="gt-altura" type="number" inputmode="numeric" min="140" max="220" placeholder="Ex.: 175">
+      </label>
+      <label for="gt-peso">Peso (kg)
+        <input id="gt-peso" type="number" inputmode="numeric" min="35" max="250" placeholder="Ex.: 72">
+      </label>
+    </div>
+    <button type="submit">Ver meu tamanho</button>
+    <div class="gt-err" id="gt-err" aria-live="polite"></div>
+  </form>
+
+  <div class="gt-res" id="gt-res" hidden aria-live="polite"></div>
+
+  <script>
+  (function(){
+    // Limite de peso por modelo (acima disso: sem tamanho).
+    // Cropped: GG tem 116 cm de circunferência (58 × 2); limite em 100 kg.
+    // Faixas por tamanho: altura máxima (cm) e peso máximo (kg). Ajuste depois de testar com clientes.
+    var MODELOS={
+      over:{nome:"Camiseta oversized",max:160,
+        tam:[
+          {t:"PP", alt:162, peso:55},
+          {t:"P",  alt:170, peso:65},
+          {t:"M",  alt:177, peso:75},
+          {t:"G",  alt:183, peso:86},
+          {t:"GG", alt:189, peso:98},
+          {t:"XG", alt:195, peso:111} // segue a escala: altura +6 cm, peso +13 kg (passos 10,10,11,12,13)
+        ],
+        med:{PP:"76 × 60 cm",P:"78 × 62 cm",M:"80 × 64 cm",G:"82 × 66 cm",GG:"84 × 68 cm",XG:"86 × 70 cm"}},
+      // Cropped estimado pela medida da peça: largura × 2 = circunferência (P 110, M 112, G 114, GG 116 cm).
+      // Busto estimado ≈ 50 + 0,65 × peso; caimento oversized = pelo menos ~20 cm de folga.
+      // Altura pelo comprimento (38 a 41 cm): mais alta, peça maior pra não subir demais.
+      crop:{nome:"Cropped feminino",max:100,
+        tam:[
+          {t:"P",  alt:158, peso:62},
+          {t:"M",  alt:164, peso:65},
+          {t:"G",  alt:170, peso:68},
+          {t:"GG", alt:999, peso:999}
+        ],
+        med:{P:"38 × 55 cm",M:"39 × 56 cm",G:"40 × 57 cm",GG:"41 × 58 cm"}}
+    };
+    var modo="over";
+
+    var form=document.getElementById("gt-form"),res=document.getElementById("gt-res"),err=document.getElementById("gt-err"),sub=document.getElementById("gt-sub");
+    var tabs=document.querySelectorAll("#gt-size .gt-tabs button");
+    for(var k=0;k<tabs.length;k++){tabs[k].addEventListener("click",function(){
+      modo=this.getAttribute("data-m");
+      for(var n=0;n<tabs.length;n++){var on=tabs[n]===this;tabs[n].className=on?"on":"";tabs[n].setAttribute("aria-selected",on);}
+      sub.textContent=MODELOS[modo].nome+" · informe sua altura e seu peso";
+      if(!res.hidden)calc();
+    });}
+
+    function idx(lista,valor,campo){for(var i=0;i<lista.length;i++){if(valor<=lista[i][campo])return i;}return lista.length;} // além do último tamanho
+
+    function calc(){
+      var M=MODELOS[modo],T=M.tam;
+      var a=parseFloat(String(document.getElementById("gt-altura").value).replace(",",".")),p=parseFloat(String(document.getElementById("gt-peso").value).replace(",","."));
+      if(a>0&&a<3){a=a*100;} // aceita 1,75 também
+      if(!(a>=140&&a<=220)||!(p>=35&&p<=250)){err.textContent="Confira os valores: altura entre 140 e 220 cm e peso em kg.";res.hidden=true;return;}
+      err.textContent="";
+      if(p>M.max){
+        res.innerHTML='<div class="gt-none"><b>No momento não temos um tamanho que vista bem em você.</b>Não queremos que você receba uma peça que não fique do jeito certo. Chama a gente no WhatsApp ou no Instagram @gan.team que a gente te ajuda.</div>';
+        res.hidden=false;return;
+      }
+      var i=Math.max(idx(T,a,"alt"),idx(T,p,"peso"));
+      function card(j,nome,main){
+        if(j<0||j>=T.length) return '<div class="gt-card"><span>'+nome+'</span><b>—</b><small>Sem opção</small></div>';
+        var t=T[j].t;
+        return '<div class="gt-card'+(main?' main':'')+'">'+(main?'<div class="gt-tag">Recomendado</div>':'')+'<span>'+nome+'</span><b>'+t+'</b><small>'+M.med[t]+'</small></div>';
+      }
+      // Acima da faixa do XG (até o limite): XG passa a ser o recomendado no caimento padrão.
+      var fora=i>=T.length;
+      var html=card(i-1,"Padrão",fora)+card(i,"Oversized",!fora)+card(i+1,"Extra oversized",false);
+      html+='<div class="gt-note">Sugestão com base em altura e peso. Medidas: comprimento × largura. Para ter certeza, compare com uma camiseta sua na tabela de medidas.</div>';
+      res.innerHTML=html;res.hidden=false;
+    }
+    form.addEventListener("submit",function(e){e.preventDefault();calc();});
+  })();
+  </script>
+</div>
+
+<section class="tabelas">
+<h4>Tabela de medidas · Oversized</h4>
+<table><tr><th>Tam</th><th>Comprimento</th><th>Largura</th><th>Manga</th></tr><tr><td>PP</td><td>76</td><td>60</td><td>22</td></tr><tr><td>P</td><td>78</td><td>62</td><td>23</td></tr><tr><td>M</td><td>80</td><td>64</td><td>24</td></tr><tr><td>G</td><td>82</td><td>66</td><td>25</td></tr><tr><td>GG</td><td>84</td><td>68</td><td>26</td></tr><tr><td>XG</td><td>86</td><td>70</td><td>27</td></tr></table>
+<h4>Tabela de medidas · Cropped</h4>
+<table><tr><th>Tam</th><th>Comprimento</th><th>Largura</th><th>Manga</th></tr><tr><td>P</td><td>38</td><td>55</td><td>17</td></tr><tr><td>M</td><td>39</td><td>56</td><td>18</td></tr><tr><td>G</td><td>40</td><td>57</td><td>19</td></tr><tr><td>GG</td><td>41</td><td>58</td><td>20</td></tr></table>
+<p class="obs">Medidas em cm, com a peça estendida na mesa. Pode variar até 2 cm.</p>
+</section>
+<p class="rod"><a href="https://instagram.com/gan.team">@gan.team</a></p>
+</body>
+</html>
