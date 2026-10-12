@@ -82,6 +82,10 @@
     letter-spacing:0.04em;
     padding-bottom:18px;
   }
+  .links{display:flex;flex-direction:column;gap:10px;width:100%;max-width:320px;margin:0 0 26px}
+  .links a{display:block;padding:15px 18px;border:1px solid #2c2c2c;border-radius:8px;color:var(--text);text-decoration:none;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;transition:border-color .15s}
+  .links a:hover{border-color:var(--text)}
+  .links a.main{background:var(--text);color:var(--bg);border-color:var(--text)}
 </style>
 </head>
 <body>
@@ -91,6 +95,10 @@
   </div>
   <div class="content">
     <p class="sub">Nosso site está em construção. Em breve, a loja completa da GAN TEAM chega aqui.</p>
+    <nav class="links" aria-label="Atalhos">
+      <a class="main" href="/lookbook/">Catálogo</a>
+      <a href="/tamanho/">Qual é o meu tamanho?</a>
+    </nav>
     <div class="social">
       <a href="https://instagram.com/gan.team" target="_blank" rel="noopener">Instagram</a>
     </div>
