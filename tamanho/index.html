@@ -47,7 +47,7 @@ td:first-child{font-weight:600}
     .gt-size button{margin-top:16px;width:100%;background:var(--ink);color:var(--bg);border:0;border-radius:6px;
       padding:13px;font-size:15px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;font-family:inherit}
     .gt-size .gt-err{color:var(--accent);font-size:13px;margin-top:10px;min-height:1em}
-    .gt-size .gt-res{margin-top:18px;display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:8px;align-items:stretch}
+    .gt-size .gt-res{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:stretch}
     .gt-size .gt-card{border:1px solid var(--line);border-radius:8px;padding:12px 10px;text-align:center;opacity:.8;display:flex;flex-direction:column;justify-content:flex-end}
     .gt-size .gt-card.main{border-color:var(--ink);opacity:1;padding-top:10px}
     .gt-size .gt-tag{display:inline-block;background:var(--ink);color:var(--bg);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;padding:2px 6px;margin-bottom:4px}
@@ -86,16 +86,20 @@ td:first-child{font-weight:600}
   (function(){
     // Limite de peso por modelo (acima disso: sem tamanho).
     // Cropped: GG tem 116 cm de circunferência (58 × 2); limite em 100 kg.
-    // Faixas por tamanho: altura máxima (cm) e peso máximo (kg). Ajuste depois de testar com clientes.
+    // Cropped: faixas por altura máxima (cm) e peso máximo (kg). Ajuste depois de testar com clientes.
     var MODELOS={
-      over:{nome:"Camiseta oversized",max:160,
+      // Oversized: pontos = altura (cm) + 0,35 × peso (kg). O tamanho PADRÃO é o primeiro com "ate" >= pontos;
+      // o OVERSIZED (recomendado) é um tamanho acima. Calibrado com casos reais:
+      // 1,68/77 → P padrão · 1,79/92 → G padrão (M aperta) · 1,74/118 → G padrão, escolheu GG.
+      // Piso por peso pra quem é mais pesado e baixo: 120 kg+ começa no GG, 135 kg+ no XG.
+      over:{nome:"Camiseta oversized",max:160,k:0.35,
         tam:[
-          {t:"PP", alt:162, peso:55},
-          {t:"P",  alt:170, peso:65},
-          {t:"M",  alt:177, peso:75},
-          {t:"G",  alt:183, peso:86},
-          {t:"GG", alt:189, peso:98},
-          {t:"XG", alt:195, peso:111} // segue a escala: altura +6 cm, peso +13 kg (passos 10,10,11,12,13)
+          {t:"PP", ate:191},
+          {t:"P",  ate:200},
+          {t:"M",  ate:209},
+          {t:"G",  ate:218},
+          {t:"GG", ate:227, piso:120},
+          {t:"XG", ate:9999, piso:135}
         ],
         med:{PP:"76 × 60 cm",P:"78 × 62 cm",M:"80 × 64 cm",G:"82 × 66 cm",GG:"84 × 68 cm",XG:"86 × 70 cm"}},
       // Cropped estimado pela medida da peça: largura × 2 = circunferência (P 110, M 112, G 114, GG 116 cm).
@@ -133,15 +137,22 @@ td:first-child{font-weight:600}
         res.innerHTML='<div class="gt-none"><b>No momento não temos um tamanho que vista bem em você.</b>Não queremos que você receba uma peça que não fique do jeito certo. Chama a gente no WhatsApp ou no Instagram @gan.team que a gente te ajuda.</div>';
         res.hidden=false;return;
       }
-      var i=Math.max(idx(T,a,"alt"),idx(T,p,"peso"));
+      // pad = índice do tamanho padrão; o oversized é pad+1
+      var pad;
+      if(M.k){
+        var pts=a+M.k*p;pad=idx(T,pts,"ate");if(pad>=T.length)pad=T.length-1;
+        for(var f=0;f<T.length;f++){if(T[f].piso&&p>=T[f].piso&&pad<f)pad=f;}
+      }else{
+        pad=Math.max(idx(T,a,"alt"),idx(T,p,"peso"))-1; // cropped: faixa por altura e peso
+      }
       function card(j,nome,main){
         if(j<0||j>=T.length) return '<div class="gt-card"><span>'+nome+'</span><b>—</b><small>Sem opção</small></div>';
         var t=T[j].t;
         return '<div class="gt-card'+(main?' main':'')+'">'+(main?'<div class="gt-tag">Recomendado</div>':'')+'<span>'+nome+'</span><b>'+t+'</b><small>'+M.med[t]+'</small></div>';
       }
-      // Acima da faixa do XG (até o limite): XG passa a ser o recomendado no caimento padrão.
-      var fora=i>=T.length;
-      var html=card(i-1,"Padrão",fora)+card(i,"Oversized",!fora)+card(i+1,"Extra oversized",false);
+      // Recomendado = oversized; se não existir um tamanho acima, o padrão vira o recomendado.
+      var temOver=pad+1<T.length;
+      var html=card(pad,"Padrão",!temOver)+card(pad+1,"Oversized",temOver);
       html+='<div class="gt-note">Sugestão com base em altura e peso. Medidas: comprimento × largura. Para ter certeza, compare com uma camiseta sua na tabela de medidas.</div>';
       res.innerHTML=html;res.hidden=false;
     }
