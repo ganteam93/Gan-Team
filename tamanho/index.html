@@ -91,13 +91,13 @@ td:first-child{font-weight:600}
       // Oversized: pontos = altura (cm) + 0,35 × peso (kg). O tamanho PADRÃO é o primeiro com "ate" >= pontos;
       // o OVERSIZED (recomendado) é um tamanho acima. Calibrado com casos reais:
       // 1,68/77 → P padrão · 1,79/92 → G padrão (M aperta) · 1,74/118 → G padrão, escolheu GG.
-      // Piso por peso pra quem é mais pesado e baixo: 120 kg+ começa no GG, 135 kg+ no XG.
+      // Piso por peso pra quem é mais pesado e baixo: 82 kg+ começa no M, 92 kg+ no G, 120 kg+ no GG, 135 kg+ no XG.
       over:{nome:"Camiseta oversized",max:160,k:0.35,
         tam:[
           {t:"PP", ate:191},
           {t:"P",  ate:200},
-          {t:"M",  ate:209},
-          {t:"G",  ate:218},
+          {t:"M",  ate:209, piso:82},
+          {t:"G",  ate:218, piso:92},
           {t:"GG", ate:227, piso:120},
           {t:"XG", ate:9999, piso:135}
         ],
